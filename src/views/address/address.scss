@@ -1,0 +1,55 @@
+@import '../../style/variable.scss';
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.header {
+  line-height: .44rem;
+  padding: 0 .18rem;
+  text-align: center;
+  background-color: $content__bgcolor;
+  font-size: .16rem;
+  color: $content__fontcolor;
+}
+
+.back {
+  float: left;
+}
+
+.add {
+  float: right;
+  font-size: .14rem;
+  color: $content__fontcolor;
+}
+
+.content {
+  background-color: $content__bgcolor;
+  margin-top: .12rem;
+  padding: 0 .18rem;
+}
+
+.item {
+  display: flex;
+  line-height: .44rem;
+  font-size: .14rem;
+  color: $minus__color;
+  border-bottom: .01rem solid #f1f1f1;
+
+  &:last-child {
+    border: none;
+  }
+
+  &__input {
+    flex: 1;
+    color: $content__fontcolor;
+    line-height: .44rem;
+    font-size: .14rem;
+    border: none;
+    outline: none;
+  }
+}

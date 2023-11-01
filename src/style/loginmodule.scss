@@ -1,0 +1,83 @@
+@import './variable.scss';
+
+.login,
+.register,
+.forget,
+.change {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: $content__bgcolor;
+
+  &__head {
+    width: 1.35rem;
+    height: 1.15rem;
+    margin-bottom: .4rem;
+  }
+
+  &__input {
+    width: 2.95rem;
+    height: .48rem;
+    background: #F9F9F9;
+    border: .01rem solid rgba(0, 0, 0, 0.10);
+    border-radius: .06rem;
+    overflow: hidden;
+    &__content {
+      width: 100%;
+      line-height: .48rem;
+      border: none;
+      outline: none;
+      background: none;
+      padding: 0 .16rem;
+      font-size: .16rem;
+      color: #777777;
+    }
+  }
+
+  &__input+&__input {
+    margin-top: .16rem;
+  }
+  &__code {
+    width: 65% !important;
+    &__btn {
+      display: inline-block;
+      width: 35%;
+      height: .48rem;
+      border: transparent;
+      background: #1184e2;
+      color: $btn__fontcolor;
+      font-size: .16rem;
+    }
+    &__btn--active {
+      background-color: #bfbfbf;
+    }
+  }
+
+  &__button {
+    width: 2.95rem;
+    line-height: .48rem;
+    background: $btn__color;
+    box-shadow: 0 .04rem .08rem 0 rgba(0, 145, 255, 0.32);
+    border-radius: .04rem;
+    text-align: center;
+    font-size: .16rem;
+    color: $btn__fontcolor;
+    margin: .32rem 0 .16rem;
+  }
+
+  &__links {
+    color: rgba(0, 0, 0, 0.50);
+    letter-spacing: 0;
+
+    &__link {
+      font-size: .14rem;
+    }
+
+    &__line {
+      font-size: 12px;
+      margin: 0 .12rem;
+    }
+  }
+}
