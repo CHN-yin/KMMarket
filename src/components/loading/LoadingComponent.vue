@@ -34,16 +34,18 @@ export default {
   0% {
     transform: rotate(0deg);
   }
-
+  50% {
+    transform: rotate(140deg);
+  }
   100% {
     transform: rotate(360deg);
   }
 }
 
 .spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #f3f3f3;
+  width: .4rem;
+  height: .4rem;
+  border: .04rem solid #f3f3f3;
   border-top-color: #3498db;
   border-radius: 50%;
   animation: spin .5s linear infinite;

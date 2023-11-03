@@ -56,7 +56,7 @@ export default {
     &__pic{
       width: .46rem;
       height: .46rem;
-      object-fit: contain;
+      object-fit: cover;
     }
     &__detli{
       flex: 1;

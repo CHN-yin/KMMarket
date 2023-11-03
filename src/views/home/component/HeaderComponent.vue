@@ -11,7 +11,7 @@
       <i class="iconfont icon-xiaoxi">&#xe676;</i>
     </div>
     <!-- :class="{'search':!showSearch, 'search-active':showSearch } -->
-    <div :class="{'search':!showSearch, 'search-active':showSearch }" @scroll="topScroll()">
+    <div class="search">
       <i class="iconfont icon-sousuo">&#xe752;</i>
       <samp class="search__title">山姆会员商店</samp>
     </div>

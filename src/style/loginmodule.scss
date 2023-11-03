@@ -23,7 +23,6 @@
     background: #F9F9F9;
     border: .01rem solid rgba(0, 0, 0, 0.10);
     border-radius: .06rem;
-    overflow: hidden;
     &__content {
       width: 100%;
       line-height: .48rem;
@@ -33,6 +32,9 @@
       padding: 0 .16rem;
       font-size: .16rem;
       color: #777777;
+    }
+    &__code{
+      overflow: hidden;
     }
   }
 
@@ -76,7 +78,7 @@
     }
 
     &__line {
-      font-size: 12px;
+      font-size: .12rem;
       margin: 0 .12rem;
     }
   }

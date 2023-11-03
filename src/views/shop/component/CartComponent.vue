@@ -165,7 +165,7 @@ export default {
     &__pic{
       width: .28rem;
       height: .26rem;
-      object-fit: contain;
+      object-fit: cover;
       margin: .12rem .32rem .12rem .24rem;
     }
     &__tag{
@@ -265,7 +265,7 @@ export default {
       display: block;
       width: .46rem;
       height: .46rem;
-      object-fit: contain;
+      object-fit: cover;
       margin: 0 0 0 .16rem;
     }
   &__detil{

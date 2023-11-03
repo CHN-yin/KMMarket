@@ -17,7 +17,6 @@ export const useCartNumberEffect = (shopId) => {
     for (const i in productList) {
       const product = productList[i]
       if (product.count > 0) notNullProductsList[i] = product
-      console.log(notNullProductsList)
     }
     return notNullProductsList
   })

@@ -147,7 +147,6 @@ export default {
       width: .68rem;
       height: .68rem;
       object-fit: cover;
-      // object-fit: contain;
       margin-bottom: .12rem;
     }
   &__detil{

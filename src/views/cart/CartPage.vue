@@ -113,15 +113,15 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 2rem;
   background-color: $content__bgcolor;
   border-radius: .1rem;
   box-shadow: 0 4px 8px 0 rgba(159, 161, 162, 0.32);
+  padding: .18rem 0;
   overflow: hidden;
   &__icon{
     font-size: .7rem;
     color: #ced6e0;
-    margin: .18rem 0 .14rem;
+    margin-bottom: .14rem;
   }
   &__title{
     font-size: .14rem;
@@ -160,7 +160,7 @@ export default {
     &__pic{
       width: .46rem;
       height: .46rem;
-      object-fit: contain;
+      object-fit: cover;
     }
     &__detli{
       flex: 1;

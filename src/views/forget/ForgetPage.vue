@@ -4,7 +4,7 @@
     <div class="forget__input">
       <input class="forget__input__content" placeholder="手机号" v-model="data.username">
     </div>
-    <div class="forget__input">
+    <div class="forget__input forget__input__code">
       <input class="forget__input__content forget__code" placeholder="验证码" v-model="data.code">
       <button id="btn" :class="{ forget__code__btn: true, 'forget__code__btn--active': data.codeBtnShow }" @click="handleCodeRandom">{{ data.codeBtnValue }}</button>
     </div>

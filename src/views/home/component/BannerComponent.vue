@@ -26,7 +26,7 @@ export default {
   border-radius: .06rem;
   &__pic{
     width: 100%;
-    height: 1.35rem;
+    height: 100%;
     object-fit: cover;
   }
 }

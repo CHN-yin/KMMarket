@@ -31,7 +31,7 @@ export default {
       width: .56rem;
       height: .56rem;
       margin-right: .16rem;
-      object-fit: contain;
+      object-fit: cover;
     }
     &__content{
       flex: 1;

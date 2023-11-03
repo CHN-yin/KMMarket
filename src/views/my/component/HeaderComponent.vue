@@ -60,7 +60,7 @@ export default {
     width: .94rem;
     height: .94rem;
     border-radius: 50%;
-    object-fit: contain;
+    object-fit: cover;
   }
   &__title{
     position: relative;
