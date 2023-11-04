@@ -14,8 +14,6 @@
             </div>
           </div>
       </div>
-      <div class="total">
-      </div>
     </div>
   </div>
 </template>

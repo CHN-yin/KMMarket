@@ -55,7 +55,11 @@ export default createStore({
       }
       product.count += num
       product.checked = true
-      if (product.count <= 0) product.count = 0
+      console.log(product)
+      if (product.count <= 0) {
+        product.count = 0
+        product = ''
+      }
       shopInfo.productList[productId] = product
       shopInfo.shopName = shopName
       state.cartList[shopId] = shopInfo

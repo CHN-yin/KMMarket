@@ -45,6 +45,14 @@ export default {
 <style lang="scss" scoped>
 @import '../../style/variable.scss';
 @import '../../style/mixins.scss';
+@keyframes start {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .mask{
   position: fixed;
   top: 0;bottom: 0;
@@ -53,6 +61,7 @@ export default {
   z-index: 3;
 }
 .address{
+  animation: start .5s;
   z-index: 999;
   position: absolute;
   left: 0;right: 0;

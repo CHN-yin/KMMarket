@@ -1,6 +1,5 @@
 <template>
-  <div class="mask" v-if="cartShow && cartContent.count > 0"
-  @click="handleCartShow()"></div>
+  <div class="mask" v-if="cartShow && cartContent.count > 0" @click="handleCartShow()"></div>
   <div class="cart">
     <div class="product" v-if="cartShow && cartContent.count > 0">
       <div class="product__header" >
@@ -139,6 +138,14 @@ export default {
 <style lang="scss" scoped>
 @import '../../../style/variable.scss';
 @import '../../../style/mixins.scss';
+@keyframes start {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .mask{
   position: fixed;
   top: 0;
@@ -156,6 +163,7 @@ export default {
   z-index: 2;
 }
 .check{
+  bottom: .49rem;
   display: flex;
   height: .49rem;
   line-height: .49rem;
@@ -212,6 +220,7 @@ export default {
 }
 
 .product{
+  animation: start .5s;
   flex: 1;
   overflow-y: scroll;
   background-color: $content__bgcolor;

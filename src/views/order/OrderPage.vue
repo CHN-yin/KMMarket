@@ -1,8 +1,20 @@
 <template>
-  <template v-if="!loading">
+  <template v-if="true">
     <div class="wrapper">
       <div class="header">我的订单</div>
-      <div class="orders" @scroll="handelTopScroll">
+      <!-- 订单为空 -->
+      <div class="orders" @scroll="handelTopScroll" v-if="!list">
+        <div class="prompt">
+          <div class="prompt__icon iconfont">&#xe8ff;</div>
+          <div class="prompt__title">订单空空如也</div>
+          <div class="prompt__describe">更多好物等亲发现呢！快去逛逛吧！</div>
+          <RouterLink :to="{ name: 'HomePage' }">
+            <div class="prompt__btn">去逛逛</div>
+          </RouterLink>
+        </div>
+      </div>
+      <!-- 订单不为空 -->
+      <div class="orders" @scroll="handelTopScroll" v-if="list">
         <div class="order" v-for="(item, index) in list" :key="index">
           <div class="order__title">
             {{ item.shopName }}
@@ -87,6 +99,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../style/variable.scss';
+@import '../../style/decknull.scss';
 .wrapper{
   position: absolute;
   top: 0;

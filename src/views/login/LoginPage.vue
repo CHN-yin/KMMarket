@@ -34,9 +34,6 @@ const useLgoninEffect = (toastShow, router) => {
     if (!(/^1[3456789]\d{9}$/.test(data.username))) {
       return toastShow('手机号格式错误')
     }
-    if (!(/^.{6,}$/.test(data.password))) {
-      return toastShow('密码至少需要六位')
-    }
     try {
       const result = await post(URL, {
         username: data.username,

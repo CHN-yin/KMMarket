@@ -83,6 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../style/variable.scss';
+@import '../../style/decknull.scss';
 .wrapper{
   position: absolute;
   top: 0;
@@ -108,40 +109,6 @@ export default {
   padding: .16rem .18rem;
   overflow-y: scroll;
   }
-  // 购物车为空样式
-.prompt{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: $content__bgcolor;
-  border-radius: .1rem;
-  box-shadow: 0 4px 8px 0 rgba(159, 161, 162, 0.32);
-  padding: .18rem 0;
-  overflow: hidden;
-  &__icon{
-    font-size: .7rem;
-    color: #ced6e0;
-    margin-bottom: .14rem;
-  }
-  &__title{
-    font-size: .14rem;
-    color: $content__fontcolor;
-  }
-  &__describe{
-    font-size: .12rem;
-    color: $original__fontcolor;
-    margin: .06rem 0;
-  }
-  &__btn{
-    width: 1.2rem;
-    line-height: .4rem;
-    background-color: $btn__color;
-    border-radius: .5rem;
-    font-size: .14rem;
-    text-align: center;
-    color: $btn__fontcolor;
-  }
-}
  // 购物车不为空样式
 .shop{
   border-radius: .04rem;
