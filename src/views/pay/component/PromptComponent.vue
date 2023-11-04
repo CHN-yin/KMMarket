@@ -2,12 +2,12 @@
   <div class="mask">
     <template v-if="!loading">
       <div class="mask__content">
-        <h3 class="mask__content__title">确认要离开收银台？</h3>
+        <h3 class="mask__content__title">收银台</h3>
         <p class="mask__content__desc">请尽快完成支付，否则将被取消</p>
         <div class="mask__content__btns">
           <div
             class="mask__content__btn mask__content__btn--first"
-            @click="() => handleConfirmOrder(true, addressId)">取消订单</div>
+            @click="() => handleConfirmOrder(true, addressId)">取消支付</div>
           <div class="mask__content__btn mask__content__btn--last"
             @click="() => handleConfirmOrder(false, addressId)">确认支付</div>
         </div>

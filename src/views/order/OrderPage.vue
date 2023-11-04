@@ -1,5 +1,5 @@
 <template>
-  <template v-if="true">
+  <template v-if="!loading">
     <div class="wrapper">
       <div class="header">我的订单</div>
       <!-- 订单为空 -->
@@ -99,14 +99,6 @@ export default {
 <style lang="scss" scoped>
 @import '../../style/variable.scss';
 @import '../../style/decknull.scss';
-.wrapper{
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: .49rem;
-  right: 0;
-  background-color: #f8f8f8;
-}
 .header{
   line-height: .44rem;
   background-color: $content__bgcolor;
