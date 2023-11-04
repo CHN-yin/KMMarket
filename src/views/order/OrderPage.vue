@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="header">我的订单</div>
       <!-- 订单为空 -->
-      <div class="orders" @scroll="handelTopScroll" v-if="!list">
+      <div class="orders" @scroll="handelTopScroll" v-if="list.length <= 0">
         <div class="prompt">
           <div class="prompt__icon iconfont">&#xe8ff;</div>
           <div class="prompt__title">订单空空如也</div>
@@ -14,7 +14,7 @@
         </div>
       </div>
       <!-- 订单不为空 -->
-      <div class="orders" @scroll="handelTopScroll" v-if="list">
+      <div class="orders" @scroll="handelTopScroll" v-if="list.length > 0">
         <div class="order" v-for="(item, index) in list" :key="index">
           <div class="order__title">
             {{ item.shopName }}
@@ -61,7 +61,6 @@ const useOrderListEffect = () => {
       const result = await get('api/order')
       if (result?.errno === 0 && result?.data.length) {
         const orderList = result.data
-        console.log(orderList)
         orderList.forEach(order => {
           const products = order.products || []
           let totalPrice = 0
