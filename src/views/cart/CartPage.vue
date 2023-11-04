@@ -84,14 +84,6 @@ export default {
 <style lang="scss" scoped>
 @import '../../style/variable.scss';
 @import '../../style/decknull.scss';
-.wrapper{
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: .49rem;
-  right: 0;
-  background-color: #f8f8f8;
-}
 .header{
   height: .44rem;
   line-height: .44rem;

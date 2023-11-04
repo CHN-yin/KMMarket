@@ -91,9 +91,6 @@ export default {
 <style lang="scss" scoped>
 @import '../../style//variable.scss';
 .wrapper{
-  position: absolute;
-  left: 0;right: 0;
-  top: 0;bottom: .49rem;
   overflow-y: scroll;
 }
 </style>

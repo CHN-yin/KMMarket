@@ -45,14 +45,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../style/variable.scss';
 .wrapper{
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: .49rem;
-  right: 0;
-  background-color: $content__bgcolor;
   overflow-y: scroll;
 }
 </style>
