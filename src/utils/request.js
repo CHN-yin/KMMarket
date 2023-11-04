@@ -2,8 +2,6 @@ import axios from 'axios'
 
 const instance = axios.create({
   baseURL: 'http://localhost:3000',
-  // baseURL: 'http://120.79.21.14',
-  // baseURL: 'https://www.fastmock.site/mock/cceb699e37e38582b5bffb76a1cb2d8d/jd',
   withCredentials: true, // 跨域带 cookie
   timeout: 10000
 })
