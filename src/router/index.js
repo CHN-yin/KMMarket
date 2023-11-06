@@ -1,18 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const { isLogin } = sessionStorage
+const { isLogin } = localStorage
 
 const routes = [
   {
     path: '/',
-    name: 'WrapPage',
-    component: () => import(/* webpackChunkName: "wrap" */ '@/views/wrap/WrapPage'),
-    beforeEnter (to, from, next) {
-      isLogin ? next({ name: 'HomePage' }) : next()
-    }
-  },
-  {
-    path: '/home',
     name: 'HomePage',
     component: () => import(/* webpackChunkName: "home" */ '@/views/home/HomePage')
   },
@@ -91,8 +83,8 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (!isLogin && (to.name !== 'LoginPage' && to.name !== 'RegisterPage' &&
-  to.name !== 'ForgetPage' && to.name !== 'ChangePwd' && to.name !== 'WrapPage')) {
-    next({ name: 'WrapPage' })
+  to.name !== 'ForgetPage' && to.name !== 'ChangePwd' && to.name !== 'HomePage')) {
+    next({ name: 'HomePage' })
   } else {
     next()
   }
