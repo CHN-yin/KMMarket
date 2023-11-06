@@ -54,6 +54,15 @@ const categories = [
   }, {
     name: '新鲜水果',
     tab: 'fruit'
+  }, {
+    name: '休闲食品',
+    tab: 'snacks'
+  }, {
+    name: '时令蔬菜',
+    tab: 'vegetable'
+  }, {
+    name: '蛋肉家禽',
+    tab: 'meat'
   }
 ]
 // 分类导航点击跳转逻辑
