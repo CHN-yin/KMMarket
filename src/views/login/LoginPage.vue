@@ -40,7 +40,7 @@ const useLgoninEffect = (toastShow, router) => {
         password: data.password
       })
       if (result?.errno !== 0) return toastShow(result.message)
-      sessionStorage.isLogin = true
+      localStorage.isLogin = true
       location.reload()
     } catch (e) {
       toastShow('请求错误')
@@ -50,7 +50,7 @@ const useLgoninEffect = (toastShow, router) => {
   return { username, password, handleLogin }
 }
 
-// 点击跳转注册页面逻辑区块
+// 点击跳转注册/忘记密码页面逻辑区块
 const useJumpClickEffect = (router) => {
   const handleRegisterClick = () => {
     router.push({ name: 'RegisterPage' })

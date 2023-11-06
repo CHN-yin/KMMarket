@@ -15,13 +15,13 @@ const setSession = state => {
   const { addressId } = state
   const cartListString = JSON.stringify(cartList)
   const addressIdString = JSON.stringify(addressId)
-  sessionStorage.cartList = cartListString
-  sessionStorage.addressId = addressIdString
+  localStorage.cartList = cartListString
+  localStorage.addressId = addressIdString
 }
 
 const getSessionCartList = () => {
   try {
-    const cartList = JSON.parse(sessionStorage.cartList)
+    const cartList = JSON.parse(localStorage.cartList)
     return cartList
   } catch (e) {
     return {}
@@ -29,7 +29,7 @@ const getSessionCartList = () => {
 }
 const getSessionAddresId = () => {
   try {
-    const addressId = JSON.parse(sessionStorage.addressId)
+    const addressId = JSON.parse(localStorage.addressId)
     return addressId
   } catch (e) {
     return ''

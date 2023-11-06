@@ -20,8 +20,8 @@ import { RouterLink } from 'vue-router'
 
 const useBtnEffect = () => {
   const handelBtnClick = () => {
-    sessionStorage.removeItem('addressId')
-    sessionStorage.removeItem('isLogin')
+    localStorage.removeItem('addressId')
+    localStorage.removeItem('isLogin')
     location.reload()
   }
   return { handelBtnClick }
