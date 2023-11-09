@@ -26,7 +26,6 @@ const useBtnEffect = () => {
     removeLocalStorage('cartList')
     location.reload()
   }
-  console.log('cartList:', localStorage.cartList)
   return { handelBtnClick }
 }
 
