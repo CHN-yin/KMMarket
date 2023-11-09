@@ -29,6 +29,7 @@ import { useAddressEffect } from '@/effect/AddressEffect'
 import { reactive, watchEffect } from 'vue'
 import { useStore } from 'vuex'
 import { get } from '@/utils/request'
+import { getLocalStorage } from '@/effect/StorageEffect'
 
 const useHomeEffect = (isLogin, getAddressOne) => {
   const data = reactive({
@@ -86,7 +87,7 @@ export default {
   },
   setup () {
     const contentName = '.wrapper'
-    const { isLogin } = localStorage
+    const isLogin = getLocalStorage('isLogin')
     const { addressList, addressOne, getAddressOne } = useAddressEffect()
     const {
       data, handleWarnShow, handleWarnDelete, handleAddressClick

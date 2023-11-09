@@ -16,14 +16,17 @@
 </template>
 
 <script>
+import { removeLocalStorage } from '@/effect/StorageEffect'
 import { RouterLink } from 'vue-router'
 
 const useBtnEffect = () => {
   const handelBtnClick = () => {
-    localStorage.removeItem('addressId')
-    localStorage.removeItem('isLogin')
+    removeLocalStorage('addressId')
+    removeLocalStorage('isLogin')
+    removeLocalStorage('cartList')
     location.reload()
   }
+  console.log('cartList:', localStorage.cartList)
   return { handelBtnClick }
 }
 

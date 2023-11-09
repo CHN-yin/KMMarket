@@ -1,6 +1,7 @@
+import { getLocalStorage } from '@/effect/StorageEffect'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-const { isLogin } = localStorage
+const isLogin = getLocalStorage('isLogin')
 
 const routes = [
   {

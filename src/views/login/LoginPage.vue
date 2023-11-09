@@ -22,6 +22,7 @@ import { reactive, toRefs } from 'vue'
 import { useRouter } from 'vue-router'
 import { post } from '../../utils/request'
 import ToastComponent, { useToastEffect } from '@/components/toast/ToastComponent.vue'
+import { setLocalStorage } from '@/effect/StorageEffect'
 
 // 登入逻辑区块
 const useLgoninEffect = (toastShow, router) => {
@@ -40,7 +41,7 @@ const useLgoninEffect = (toastShow, router) => {
         password: data.password
       })
       if (result?.errno !== 0) return toastShow(result.message)
-      localStorage.isLogin = true
+      setLocalStorage('isLogin', true)
       location.reload()
     } catch (e) {
       toastShow('请求错误')
