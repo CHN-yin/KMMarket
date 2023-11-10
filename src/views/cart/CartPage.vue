@@ -99,7 +99,7 @@ export default {
   right: 0;
   bottom: 0;
   padding: .16rem .18rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   }
  // 购物车不为空样式
 .shop{

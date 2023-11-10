@@ -126,7 +126,7 @@ export default {
 }
 .nav{
   width: .76rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: $search__bgcolor;
   text-align: center;
   &__item{
@@ -141,7 +141,7 @@ export default {
 }
 .product{
   flex: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: $content__bgcolor;
   padding: 0 .18rem 0 .16rem;
   &__item{

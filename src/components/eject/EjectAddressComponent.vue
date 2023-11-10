@@ -79,13 +79,14 @@ export default {
     color: #333333;
   }
   &__list{
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 2.7rem;
     background-color: #ffffff;
     padding-bottom: .18rem;
   }
   &__item{
     display: flex;
+    justify-content: space-between;
     border-radius: .04rem;
     background-color: #f8f8f8;
     margin: .16rem .18rem 0;

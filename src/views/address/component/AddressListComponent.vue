@@ -32,7 +32,7 @@ export default {
 @import '../../../style/variable.scss';
 @import '../../../style/mixins.scss';
 .content{
-  overflow-y: scroll;
+  overflow-y: auto;
   position: absolute;
   top: .44rem;
   bottom: 0;

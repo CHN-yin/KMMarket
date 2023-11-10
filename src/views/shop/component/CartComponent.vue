@@ -222,7 +222,7 @@ export default {
 .product{
   animation: start .5s;
   flex: 1;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: $content__bgcolor;
   max-height: 4rem;
   border-top-left-radius: .1rem;

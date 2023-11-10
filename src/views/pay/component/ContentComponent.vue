@@ -31,7 +31,7 @@ export default {
 .shopCart{
   z-index: 1;
   position: absolute;
-  overflow-y: scroll;
+  overflow-y: auto;
   left: 0;
   right: 0;
   top: 1.5rem;

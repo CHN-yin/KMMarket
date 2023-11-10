@@ -46,6 +46,6 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper{
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 </style>
