@@ -29,7 +29,7 @@ import { useAddressEffect } from '@/effect/AddressEffect'
 import { reactive, watchEffect } from 'vue'
 import { useStore } from 'vuex'
 import { get } from '@/utils/request'
-import { getLocalStorage } from '@/effect/StorageEffect'
+import { getLocalStorage, clearLocalStorage } from '@/effect/StorageEffect'
 
 const useHomeEffect = (isLogin, getAddressOne) => {
   const data = reactive({
@@ -52,14 +52,20 @@ const useHomeEffect = (isLogin, getAddressOne) => {
   }
 
   // 用户是否登录验证
-  if (!isLogin) data.warnShow = !data.warnShow
+  const getUserInfo = async () => {
+    const result = await get('/api/user/test')
+    if (result?.errno !== 0) {
+      location.reload()
+      clearLocalStorage()
+    }
+  }
+  isLogin ? getUserInfo() : data.warnShow = !data.warnShow
   const handleWarnDelete = () => {
     data.warnShow = !data.warnShow
   }
   const handleWarnShow = () => {
     if (isLogin) return
-    if (data.warnShow) return data.warnShow
-    data.warnShow = !data.warnShow
+    if (!data.warnShow) data.warnShow = !data.warnShow
   }
 
   // 选择地址逻辑
@@ -106,6 +112,6 @@ export default {
 @import '../../style//variable.scss';
 
 .wrapper {
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 </style>
