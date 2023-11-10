@@ -47,7 +47,9 @@ export default {
 .myInfo{
   z-index: 3;
   position: absolute;
+  left: 50%;right: 50%;
   top: .9rem;
+  transform: translate(-50%);
   width: 3.39rem;
   height: 2.03rem;
   background-color: $content__bgcolor;
