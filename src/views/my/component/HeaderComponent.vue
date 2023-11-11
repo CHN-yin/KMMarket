@@ -80,7 +80,7 @@ export default {
     margin-top: .02rem;
   }
   &__lien{
-    border-bottom: .01rem solid #F1F1F1;
+    border-bottom: .01rem solid $border__bgcolor;
     margin: .12rem 0;
   }
   &__list{

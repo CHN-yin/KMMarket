@@ -34,7 +34,7 @@
   line-height: .44rem;
   font-size: .14rem;
   color: $minus__color;
-  border-bottom: .01rem solid #f1f1f1;
+  border-bottom: .01rem solid $border__bgcolor;
 
   &:last-child {
     border: none;

@@ -51,7 +51,7 @@ export default {
   display: flex;
   line-height: .49rem;
   background-color: $content__bgcolor;
-  box-shadow: 0 -1px 1px 0 #F1F1F1;
+  box-shadow: 0 -1px 1px 0 $border__bgcolor;
   &__actual{
     flex: 1;
     font-size: .14rem;
