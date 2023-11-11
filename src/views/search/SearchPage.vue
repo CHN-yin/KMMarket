@@ -29,12 +29,13 @@ import ShopCompoent from '@/components/shop/ShopCompoent.vue'
 
 const useSearchEffect = () => {
   const data = reactive({
-    searchValue: '',
+    searchValue: null,
     searchShow: true,
     shopList: {},
     message: null
   })
   const handelSearchClick = async () => {
+    if (data.searchValue === null) return
     const result = await post('/api/shop/search', {
       searchValue: data.searchValue
     })
