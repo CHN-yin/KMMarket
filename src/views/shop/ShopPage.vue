@@ -1,10 +1,21 @@
 <template>
-  <template v-if="!loading">
+  <template v-if="!data.loading">
     <div class="wrapper">
-      <SearchComponent />
-      <ShopCompoent :item="item" :lineShow="false" class="shop"/>
-      <ContentComponent :shopName="item.name"/>
-      <CartComponent :shopName="item.name"/>
+      <div class="search">
+        <BackComponent />
+        <div class="search__content">
+          <i class="iconfont icon-sousuo search__content__icon">&#xe752;</i>
+          <input v-model="data.searchValue" class="search__content__input" placeholder="请输入商品名称搜索">
+          <span class="search__content__btn" @click="handleSearchBtn">搜索</span>
+        </div>
+      </div>
+      <ShopCompoent :item="data.item" :lineShow="false" class="shop" />
+      <ContentComponent :shopName="data.item.name"
+      v-if="!data.searchShow" />
+      <SearchContentComponent :shopName="data.item.name" :shopId="shopId"
+      :searchList="data.searchList" :handleBackBtn="handleBackBtn"
+      v-if="data.searchShow" />
+      <CartComponent :shopName="data.item.name" />
     </div>
   </template>
   <template v-else>
@@ -14,52 +25,120 @@
 
 <script>
 import { useRoute } from 'vue-router'
-import { reactive, toRefs, watchEffect } from 'vue'
-import { get } from '@/utils/request'
+import { reactive, watchEffect } from 'vue'
+import { get, post } from '@/utils/request'
+import BackComponent from '@/components/back/BackComponent.vue'
 import LoadingComponent from '@/components/loading/LoadingComponent.vue'
 import ShopCompoent from '@/components/shop/ShopCompoent.vue'
-import SearchComponent from './component/SearchComponent.vue'
+import SearchContentComponent from './component/SearchContentComponent.vue'
 import ContentComponent from './component/ContentComponent.vue'
 import CartComponent from './component/CartComponent.vue'
 
-// 请求店铺信息逻辑
-const useShopItemEffect = () => {
+// 店铺商品信息及搜索逻辑
+const useShopEffect = () => {
   const route = useRoute()
   const shopId = route.params.id
-  const URL = '/api/shop/' + shopId
-  const data = reactive({ item: {}, loading: true })
+  const productURL = '/api/shop/' + shopId
+  const searchURL = '/api/shop/' + shopId + '/search'
+  const data = reactive({
+    item: {}, searchList: {}, searchValue: null, searchShow: false, loading: true
+  })
+
   const getShopItem = async () => {
-    const result = await get(URL)
+    const result = await get(productURL)
     if (result?.errno === 0 || result.data) {
       data.item = result.data
     }
     data.loading = false
   }
   watchEffect(() => { getShopItem() })
-  const { item, loading } = toRefs(data)
-  return { item, loading }
+
+  const handleSearchBtn = async () => {
+    if (data.searchValue === null) return
+    const result = await post(searchURL, {
+      searchValue: data.searchValue
+    })
+    if (result?.data || result?.errno === 0) {
+      data.searchList = result.data
+      data.searchShow = true
+    } else {
+      data.searchList = {}
+      data.searchShow = true
+    }
+  }
+
+  const handleBackBtn = () => {
+    data.searchShow = !data.searchShow
+  }
+  return { data, shopId, handleSearchBtn, handleBackBtn }
 }
 
 export default {
   name: 'ShopPage',
-  components: { SearchComponent, ShopCompoent, ContentComponent, CartComponent, LoadingComponent },
+  components: { BackComponent, ShopCompoent, ContentComponent, CartComponent, LoadingComponent, SearchContentComponent },
   setup () {
-    const { item, loading } = useShopItemEffect()
+    const { data, shopId, handleSearchBtn, handleBackBtn } = useShopEffect()
 
-    return { item, loading }
+    return { data, shopId, handleSearchBtn, handleBackBtn }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../style/variable.scss';
-.wrapper{
+
+.wrapper {
   bottom: 0;
   background-color: $content__bgcolor;
   padding: 0 .18rem;
   overflow: hidden;
 }
-.shop{
+
+.search {
+  display: flex;
+  padding: .16rem 0;
+
+  &__content {
+    flex: 1;
+    display: flex;
+    height: .32rem;
+    border-radius: .16rem;
+    background-color: $search__bgcolor;
+
+    &__icon {
+      width: .43rem;
+      font-size: .16rem;
+      color: $search__fontcolor;
+      text-align: center;
+      line-height: .32rem;
+    }
+
+    &__input {
+      flex: 1;
+      outline: none;
+      border: none;
+      background: none;
+      font-size: .14rem;
+      color: $content__fontcolor;
+
+      &::placeholder {
+        color: $content__fontcolor;
+      }
+    }
+
+    &__btn {
+      width: .5rem;
+      border-radius: .15rem;
+      margin: .03rem;
+      font-size: .12rem;
+      text-align: center;
+      line-height: .26rem;
+      background-color: $btn2__color;
+    }
+  }
+}
+
+.shop {
   margin-bottom: .16rem;
 }
 </style>
