@@ -3,9 +3,7 @@
     <div class="position">
       <div class="position__address" @click="clickShow()">
         <i class="iconfont icon-dizhi">&#xe91b;</i>
-        <span v-if="addressShow">
-          {{ addressOne.city }} {{ addressOne.department }}
-        </span>
+        <span v-if="addressShow">{{ addressOne.department }}</span>
         <span class="position__btn" v-if="!addressShow">选择地址</span>
       </div>
       <i class="iconfont icon-xiaoxi">&#xe676;</i>
