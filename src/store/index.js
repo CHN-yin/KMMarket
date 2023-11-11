@@ -33,7 +33,6 @@ export default createStore({
       console.log(product)
       if (product.count <= 0) {
         product.count = 0
-        product = ''
       }
       shopInfo.productList[productId] = product
       shopInfo.shopName = shopName
