@@ -79,6 +79,11 @@ const routes = [
     path: '/changepwd/:id',
     name: 'ChangePwd',
     component: () => import(/* webpackChunkName: "forget" */ '@/views/forget/ChangePwd')
+  },
+  {
+    path: '/replace',
+    name: 'ReplacePage',
+    component: () => import(/* webpackChunkName: "replace" */ '@/views/replace/ReplacePage')
   }
 ]
 
