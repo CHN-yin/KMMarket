@@ -15,7 +15,7 @@
       <SearchContentComponent :shopName="data.item.name" :shopId="shopId"
       :searchList="data.searchList" :handleBackBtn="handleBackBtn"
       v-if="data.searchShow" />
-      <CartComponent :shopName="data.item.name" />
+      <CartComponent :shopName="data.item.name" :expressLimit="data.item.expressLimit" />
     </div>
   </template>
   <template v-else>
@@ -91,7 +91,6 @@ export default {
   bottom: 0;
   background-color: $content__bgcolor;
   padding: 0 .18rem;
-  overflow: hidden;
 }
 
 .search {

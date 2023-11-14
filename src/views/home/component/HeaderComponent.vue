@@ -24,8 +24,10 @@
     <BannerComponent :bannerList="bannerList" />
     <div class="nav">
       <div class="nav__item" v-for="(item, index) in navList" :key="index">
-        <img class="nav__item__pic" :src="item.imgUrl">
-        <samp class="nav__item__desc">{{ item.desc }}</samp>
+        <RouterLink :to="{ name: 'ReplacePage' }">
+          <img class="nav__item__pic" :src="item.imgUrl">
+          <samp class="nav__item__desc">{{ item.desc }}</samp>
+        </RouterLink>
       </div>
     </div>
   </div>
@@ -147,4 +149,5 @@ export default {
       text-align: center;
     }
   }
-}</style>
+}
+</style>

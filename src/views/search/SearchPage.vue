@@ -3,7 +3,7 @@
     <div class="header">
       <BackComponent />
       <div class="search">
-        <input type="text" class="search__input" v-model="data.searchValue" placeholder="山姆会员商店">
+        <input type="text" class="search__input" v-model="data.searchValue" placeholder="请搜索附近的商家">
         <span class="search__btn" @click="handelSearchClick">搜索</span>
       </div>
     </div>
@@ -78,7 +78,7 @@ export default {
   display: flex;
   align-items: center;
   border: 1px solid #1FA4FC;
-  border-radius: .16rem;
+  border-radius: .5rem;
   font-size: .16rem;
 
   &__input {

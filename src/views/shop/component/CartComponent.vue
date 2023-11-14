@@ -48,7 +48,7 @@
       <div class="check__info" v-if="cartContent.count">总计：
         <span class="check__info__totalprice">&yen; {{ cartContent.price }}</span>
       </div>
-        <div class="check__btu" @click="() => clickJumpPayPage(cartContent.count)">去结算</div>
+        <div class="check__btu" @click="() => clickJumpPayPage(cartContent, expressLimit)">去结算</div>
     </div>
       <ToastComponent v-if="show" :message="toastMessage" />
   </div>
@@ -106,16 +106,20 @@ const useCartShowEffect = (toastShow, cartContent) => {
 
 // 提交订单逻辑
 const useSubmitEffect = (router, toastShow) => {
-  const clickJumpPayPage = (allCount) => {
-    allCount ? router.push({ name: 'PayPage' }) : toastShow('购物车是空的')
+  const clickJumpPayPage = (cartContent, expressLimit) => {
+    if (cartContent.price < expressLimit) {
+      const message = '离商家起送价格还差 ￥' + (expressLimit - cartContent.price)
+      return toastShow(message, 3000)
+    }
     cartShow.value = false
+    router.push({ name: 'PayPage' })
   }
   return { clickJumpPayPage }
 }
 
 export default {
   name: 'CartComponent',
-  props: ['shopName'],
+  props: ['shopName', 'expressLimit'],
   components: { ToastComponent },
   setup () {
     const route = useRoute()

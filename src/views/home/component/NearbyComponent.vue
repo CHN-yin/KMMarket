@@ -1,6 +1,6 @@
 <template>
   <div class="nearby">
-    <div class="nearby__title">附近店铺</div>
+    <div class="nearby__title">精选店铺</div>
     <template v-if="!loading">
       <RouterLink v-for="item in nearbyList" :key="item._id" :to="`/shop/${item._id}`">
         <ShopCompoent :item="item" :lineShow="true" />

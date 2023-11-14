@@ -1,6 +1,9 @@
 <template>
   <div class="warn" v-show="warnShow">
-    <span class="warn__title">欢迎来到快马集市</span>
+    <div class="warn__title">
+      <img class="warn__logo" src="../../../../public/img/KMMarketLogo.png">
+      <span class="warn__slogan">欢迎来到快马集市</span>
+    </div>
     <RouterLink :to="{ name: 'LoginPage' }">
       <span class="warn__golgin">去登录或注册</span>
     </RouterLink>
@@ -47,9 +50,20 @@ export default {
 
   &__title {
     flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
     color: #fff;
     letter-spacing: .01rem;
     margin-left: .16rem;
+  }
+   &__logo {
+    width: .5rem;
+    height: .5rem;
+    object-fit: cover;
+  }
+  &__slogan {
+    margin-left: .05rem;
   }
 
   &__golgin {
