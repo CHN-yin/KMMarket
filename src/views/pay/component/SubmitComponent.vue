@@ -2,7 +2,7 @@
   <div class="submit">
     <div class="submit__actual">
       实付金额
-      <span class="submit__actual__price">&yen;{{ cartContent.price }}</span>
+      <span class="submit__actual__price">&yen;{{ cartContent.totalPrice }}</span>
     </div>
       <div class="submit__btn" @click="handleSubmitClick()">提交订单</div>
   </div>

@@ -2,7 +2,7 @@
   <div class="content">
     <div class="content__btn" @click="handleBackBtn">回到商品列表</div>
     <ProductComponent :shopId="shopId" :shopName="shopName" :cartList="cartList" :list="searchList"
-      :handleCartItem="handleCartItem" v-show="JSON.stringify(searchList) !== '{}'" />
+      :expressPrice="expressPrice" :handleCartItem="handleCartItem" v-show="JSON.stringify(searchList) !== '{}'" />
       <div class="content__null" v-show="JSON.stringify(searchList) === '{}'">- 店铺暂无此商品 -</div>
   </div>
 </template>
@@ -13,7 +13,7 @@ import { useCartNumberEffect } from '@/effect/CartListEffect'
 
 export default {
   name: 'SearchContentComponent',
-  props: ['shopId', 'shopName', 'searchList', 'handleBackBtn'],
+  props: ['shopId', 'shopName', 'searchList', 'handleBackBtn', 'expressPrice'],
   components: { ProductComponent },
   setup () {
     const { handleCartItem, cartList } = useCartNumberEffect()

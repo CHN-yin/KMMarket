@@ -10,12 +10,13 @@
         </div>
       </div>
       <ShopCompoent :item="data.item" :lineShow="false" class="shop" />
-      <ContentComponent :shopName="data.item.name"
+      <ContentComponent :shopName="data.item.name" :expressPrice="data.item.expressPrice"
       v-if="!data.searchShow" />
-      <SearchContentComponent :shopName="data.item.name" :shopId="shopId"
-      :searchList="data.searchList" :handleBackBtn="handleBackBtn"
+      <SearchContentComponent :shopName="data.item.name" :expressPrice="data.item.expressPrice"
+      :shopId="shopId" :searchList="data.searchList" :handleBackBtn="handleBackBtn"
       v-if="data.searchShow" />
-      <CartComponent :shopName="data.item.name" :expressLimit="data.item.expressLimit" />
+      <CartComponent :shopName="data.item.name" :expressLimit="data.item.expressLimit"
+      :expressPrice="data.item.expressPrice" />
     </div>
   </template>
   <template v-else>
@@ -34,10 +35,10 @@ import SearchContentComponent from './component/SearchContentComponent.vue'
 import ContentComponent from './component/ContentComponent.vue'
 import CartComponent from './component/CartComponent.vue'
 
-// 店铺商品信息及搜索逻辑
+// 店铺信息及商品搜索逻辑
 const useShopEffect = () => {
   const route = useRoute()
-  const shopId = route.params.id
+  const { shopId } = route.params
   const productURL = '/api/shop/' + shopId
   const searchURL = '/api/shop/' + shopId + '/search'
   const data = reactive({

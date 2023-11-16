@@ -6,7 +6,8 @@
       <div class="shop__content__tags">
         <samp class="shop__content__tag">月售{{ item.sales }}</samp>
         <samp class="shop__content__tag">起送¥{{ item.expressLimit }}</samp>
-        <samp class="shop__content__tag">基础运费¥{{ item.expressPrice }}</samp>
+        <samp class="shop__content__tag" v-if="item.expressPrice > 0">基础运费¥{{ item.expressPrice }}</samp>
+        <samp class="shop__content__tag" v-if="item.expressPrice <= 0">免运费</samp>
       </div>
       <p class="shop__content__activity">{{ item.slogan }}</p>
       <div class="shop__content__line" v-if="lineShow"></div>

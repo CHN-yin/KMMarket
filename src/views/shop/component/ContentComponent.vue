@@ -6,8 +6,9 @@
     </div>
     <div class="product">
       <template v-if="!loading">
-        <ProductComponent :shopId="shopId" :shopName="shopName" :cartList="cartList" :list="contentList"
-          :handleCartItem="handleCartItem" />
+        <ProductComponent
+        :shopId="shopId" :shopName="shopName" :cartList="cartList" :list="contentList"
+        :expressPrice="expressPrice" :handleCartItem="handleCartItem" />
       </template>
       <template v-else>
         <SkeletonComponent />
@@ -77,11 +78,11 @@ const useContenrListEffect = (currentTab, shopId) => {
 
 export default {
   name: 'ContentComponent',
-  props: ['shopName'],
+  props: ['shopName', 'expressPrice'],
   components: { SkeletonComponent, ProductComponent },
   setup () {
     const rotue = useRoute()
-    const shopId = rotue.params.id
+    const { shopId } = rotue.params
 
     const { currentTab, handleNavClick } = useHandleNavClickEffect()
     const { contentList, loading } = useContenrListEffect(currentTab, shopId)

@@ -29,10 +29,10 @@
           </div>
           <div class="product__number">
             <span class="product__number__minus iconfont icon-reduce-btn"
-            @click="() => handleCartItem(shopId, shopName, item._id, item, -1)">&#xe840;</span>
+            @click="() => handleCartItem(shopId, shopName, expressPrice, item._id, item, -1)">&#xe840;</span>
             <span class="product__number__num">{{item.count || 0}}</span>
             <span class="product__number__plus iconfont icon-add-btn"
-            @click="() => handleCartItem(shopId, shopName, item._id, item, 1)">&#xe661;</span>
+            @click="() => handleCartItem(shopId, shopName, expressPrice, item._id, item, 1)">&#xe661;</span>
           </div>
         </div>
       </template>
@@ -40,7 +40,7 @@
     <div class="check">
       <div class="check__icon"
       @click="handleCartShow()">
-        <img class="check__icon__pic" src="http://www.dell-lee.com/imgs/vue3/basket.png">
+        <img class="check__icon__pic" src="../../../../public/img/basket.png">
         <div class="check__icon__tag" v-if="cartContent.count">{{handleCount}}</div>
         <div class="check__icon__omit" v-if="cartContent.count >= 99">+</div>
       </div>
@@ -89,6 +89,7 @@ const useCartEffect = (shopId) => {
   const handleAllClear = (shopId) => {
     store.commit('handleAllClear', shopId)
     cartShow.value = false
+    location.reload()
   }
 
   return {
@@ -108,7 +109,7 @@ const useCartShowEffect = (toastShow, cartContent) => {
 const useSubmitEffect = (router, toastShow) => {
   const clickJumpPayPage = (cartContent, expressLimit) => {
     if (cartContent.price < expressLimit) {
-      const message = '离商家起送价格还差 ￥' + (expressLimit - cartContent.price)
+      const message = '起送价格还差 ￥' + (expressLimit - cartContent.price).toFixed(2)
       return toastShow(message, 3000)
     }
     cartShow.value = false
@@ -119,12 +120,12 @@ const useSubmitEffect = (router, toastShow) => {
 
 export default {
   name: 'CartComponent',
-  props: ['shopName', 'expressLimit'],
+  props: ['shopName', 'expressLimit', 'expressPrice'],
   components: { ToastComponent },
   setup () {
     const route = useRoute()
     const router = useRouter()
-    const shopId = route.params.id
+    const { shopId } = route.params
     const { show, toastMessage, toastShow } = useToastEffect()
     const {
       cartContent, handleCount, productList, handleCartItem, activeChecked, handleAllChecked, handleAllClear

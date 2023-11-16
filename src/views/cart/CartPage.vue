@@ -34,8 +34,7 @@
                 </div>
               </template>
             </div>
-            <div class="total">
-            </div>
+            <RouterLink :to="`/shop/${item.shopId}`" class="total">去下单</RouterLink>
           </div>
         </template>
       </div>
@@ -61,11 +60,13 @@ const useCartListEffect = () => {
   const cartData = reactive({ cartShopList: {}, loading: true })
   for (const i in cartList) {
     const cartLists = cartList[i].productList
-    if (Object.keys(cartLists).length > 0) {
-      cartData.cartShopList[i] = cartList[i]
-    }
+    Object.keys(cartLists).forEach(key => {
+      if (cartLists[key].count > 0) {
+        cartData.cartShopList[i] = cartList[i]
+      }
+    })
   }
-  setTimeout(() => { cartData.loading = false }, 700)
+  setTimeout(() => { cartData.loading = false }, 300)
   const { cartShopList, loading } = toRefs(cartData)
   return { cartShopList, loading }
 }
@@ -145,7 +146,7 @@ export default {
   }
 }
 .total{
-  position: relative;
+  display: block;
   height: .28rem;
   line-height: .28rem;
   text-align: center;

@@ -34,9 +34,9 @@ const usePromptEffect = (toastShow) => {
   const store = useStore()
   const route = useRoute()
   const router = useRouter()
-  const shopId = route.params.id
+  const { shopId } = route.params
   const data = reactive({ loading: false })
-  const { shopName, payProductList } = useCartNumberEffect(shopId)
+  const { shopName, expressPrice, payProductList } = useCartNumberEffect(shopId)
 
   const products = []
   for (const i in payProductList.value) {
@@ -51,6 +51,7 @@ const usePromptEffect = (toastShow) => {
         addressId,
         shopId,
         shopName: shopName.value,
+        expressPrice: expressPrice.value,
         isCanceled,
         products
       })

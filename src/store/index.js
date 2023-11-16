@@ -21,7 +21,7 @@ export default createStore({
   mutations: {
     // 添加或减少商品
     handleCartItem (state, payload) {
-      const { shopId, shopName, productId, productInfo, num } = payload
+      const { shopId, shopName, expressPrice, productId, productInfo, num } = payload
       const shopInfo = state.cartList[shopId] || { shopId: '', shopName: '', productList: {} }
       let product = shopInfo.productList[productId]
       if (!product) {
@@ -30,11 +30,11 @@ export default createStore({
       }
       product.count += num
       product.checked = true
-      console.log(product)
       if (product.count <= 0) {
         product.count = 0
       }
       shopInfo.productList[productId] = product
+      shopInfo.expressPrice = expressPrice
       shopInfo.shopName = shopName
       shopInfo.shopId = shopId
       state.cartList[shopId] = shopInfo

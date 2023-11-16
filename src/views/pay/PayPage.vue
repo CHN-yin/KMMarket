@@ -1,9 +1,9 @@
 <template>
-<div class="wrapper">
-  <HeaderComponent />
-  <ContentComponent :shopName="shopName" :productList="payProductList" />
-  <SubmitComponent :cartContent="cartContent" />
-</div>
+  <div class="wrapper">
+    <HeaderComponent />
+    <ContentComponent :shopName="shopName" :expressPrice="expressPrice" :productList="payProductList" />
+    <SubmitComponent :cartContent="cartContent" />
+  </div>
 </template>
 
 <script>
@@ -13,26 +13,20 @@ import ContentComponent from './component/ContentComponent.vue'
 import SubmitComponent from './component/SubmitComponent.vue'
 import { useCartNumberEffect } from '@/effect/CartListEffect'
 
-// 商品显示逻辑
-const usePayEffect = () => {
-  const route = useRoute()
-  const shopId = route.params.id
-  const { shopName, payProductList, cartContent } = useCartNumberEffect(shopId)
-  return { shopId, shopName, payProductList, cartContent }
-}
-
 export default {
   name: 'PayPage',
   components: { HeaderComponent, ContentComponent, SubmitComponent },
   setup () {
-    const { shopId, shopName, payProductList, cartContent } = usePayEffect()
-    return { shopId, shopName, payProductList, cartContent }
+    const route = useRoute()
+    const { shopId } = route.params
+    const { shopName, payProductList, cartContent, expressPrice } = useCartNumberEffect(shopId)
+    return { shopId, shopName, payProductList, cartContent, expressPrice }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.wrapper{
+.wrapper {
   bottom: 0;
   overflow: hidden;
 }

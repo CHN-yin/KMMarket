@@ -1,36 +1,42 @@
 <template>
   <div class="productItem" v-for="item in list" :key="item._id">
-    <img :src="item.imgUrl" class="productItem__pic">
-    <div class="productItem__detil">
-      <div class="productItem__detil__title">{{ item.name }}</div>
-      <div class="productItem__detil__sales">月售{{ item.sales }}</div>
-      <div class="productItem__detil__price">
-        <span class="current">&yen;</span>{{ item.price }}
-        <span class="original">&yen;{{ item.oldPrice }}</span>
+    <RouterLink class="productItem__header" :to="`/shop/${shopId}/${item._id}`">
+      <img :src="item.imgUrl" class="productItem__pic">
+      <div class="productItem__detil">
+        <div class="productItem__detil__title">{{ item.name }}</div>
+        <div class="productItem__detil__sales">月售{{ item.sales }}</div>
+        <div class="productItem__detil__price">
+          <span class="current">&yen;</span>{{ item.price }}
+          <span class="original">&yen;{{ item.oldPrice }}</span>
+        </div>
       </div>
-    </div>
+    </RouterLink>
     <div class="productItem__number">
-      <span class="productItem__number__minus iconfont icon-reduce-btn"
-        @click="() => handleCartItem(shopId, shopName, item._id, item, -1)"
+      <span class="productItem__number__minus iconfont "
+        @click="() => handleCartItem(shopId, shopName, expressPrice, item._id, item, -1)"
         v-if="cartList?.[shopId]?.productList?.[item._id]?.count">&#xe840;</span>
       <span class="productItem__number__num">
         {{ cartList?.[shopId]?.productList?.[item._id]?.count || '' }}</span>
-      <span class="productItem__number__plus iconfont icon-add-btn"
-        @click="() => handleCartItem(shopId, shopName, item._id, item, 1)">&#xe661;</span>
+      <span class="productItem__number__plus iconfont "
+        @click="() => handleCartItem(shopId, shopName, expressPrice, item._id, item, 1)">&#xe661;</span>
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router'
+
 export default {
   name: 'ProductComponent',
-  props: ['shopId', 'shopName', 'cartList', 'list', 'handleCartItem']
+  props: ['shopId', 'shopName', 'cartList', 'list', 'expressPrice', 'handleCartItem'],
+  components: { RouterLink }
 }
 </script>
 
 <style lang="scss" scoped>
 @import '../../../style/variable.scss';
 @import '../../../style/mixins.scss';
+
 .productItem {
   display: flex;
   width: 100%;
@@ -38,7 +44,9 @@ export default {
   overflow: hidden;
   border-bottom: 1px solid $border__bgcolor;
   margin: .12rem 0 0 0;
-
+  &__header{
+    display: flex;
+  }
   &__pic {
     display: block;
     width: .68rem;
