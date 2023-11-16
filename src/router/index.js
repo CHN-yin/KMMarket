@@ -40,19 +40,24 @@ const routes = [
     component: () => import(/* webpackChunkName: "newAddress" */ '@/views/address/NewAddressPage')
   },
   {
-    path: '/modifyAddress/:id',
+    path: '/modifyAddress/:shopId',
     name: 'ModifyAddress',
     component: () => import(/* webpackChunkName: "newAddress" */ '@/views/address/ModifyAddressPage')
   },
   {
-    path: '/pay/:id',
+    path: '/pay/:shopId',
     name: 'PayPage',
     component: () => import(/* webpackChunkName: "pay" */ '@/views/pay/PayPage')
   },
   {
-    path: '/shop/:id',
+    path: '/shop/:shopId',
     name: 'ShopPage',
     component: () => import(/* webpackChunkName: "shop" */ '@/views/shop/ShopPage')
+  },
+  {
+    path: '/shop/:shopId/:productId',
+    name: 'DetailPage',
+    component: () => import(/* webpackChunkName: "detail" */ '@/views/detail/DetailPage')
   },
   {
     path: '/register',
@@ -78,7 +83,10 @@ const routes = [
   {
     path: '/changepwd/:id',
     name: 'ChangePwd',
-    component: () => import(/* webpackChunkName: "forget" */ '@/views/forget/ChangePwd')
+    component: () => import(/* webpackChunkName: "changepwd" */ '@/views/forget/ChangePwd'),
+    beforeEnter (to, from, next) {
+      from.name !== 'ForgetPage' ? next({ name: 'ForgetPage' }) : next()
+    }
   },
   {
     path: '/replace',
