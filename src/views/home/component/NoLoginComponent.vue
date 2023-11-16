@@ -58,8 +58,8 @@ export default {
     margin-left: .16rem;
   }
    &__logo {
-    width: .5rem;
-    height: .5rem;
+    width: .45rem;
+    height: .45rem;
     object-fit: cover;
   }
   &__slogan {

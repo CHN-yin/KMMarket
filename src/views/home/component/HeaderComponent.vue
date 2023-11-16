@@ -34,7 +34,6 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
 import BannerComponent from './BannerComponent.vue'
 
 export default {
@@ -43,7 +42,7 @@ export default {
     'showSearch', 'navList', 'bannerList',
     'addressShow', 'addressOne', 'clickShow'
   ],
-  components: { BannerComponent, RouterLink }
+  components: { BannerComponent }
 }
 </script>
 

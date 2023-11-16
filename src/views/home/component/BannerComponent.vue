@@ -1,9 +1,7 @@
 <template>
   <div class="banner">
-    <swiper-container loop="true" :autoplay="{ disableOnInteraction: false, delay: 5000 }"
-    :pagination="true">
-      <swiper-slide
-      v-for="(item,index) in bannerList" :key="index">
+    <swiper-container loop="true" :autoplay="{ disableOnInteraction: false, delay: 5000 }" :pagination="true">
+      <swiper-slide v-for="(item, index) in bannerList" :key="index">
         <img :src="item.imgUrl" class="banner__pic">
       </swiper-slide>
     </swiper-container>
@@ -18,13 +16,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner{
+.banner {
   height: 0;
   overflow: hidden;
   padding-bottom: 40%;
   margin: .12rem 0 .16rem 0;
   border-radius: .06rem;
-  &__pic{
+
+  &__pic {
     width: 100%;
     height: 100%;
     object-fit: cover;

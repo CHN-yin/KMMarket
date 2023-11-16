@@ -16,7 +16,7 @@
             </template>
           </div>
         </div>
-        <div class="iconfont edit">&#xf132;</div>
+        <!-- <div class="iconfont edit">&#xf132;</div> -->
       </div>
 </template>
 
@@ -28,8 +28,7 @@ export default {
     const myInfoList = [
       { value: '红包', num: 0 },
       { value: '优惠券', num: 0 },
-      { value: '金豆', num: 0 },
-      { value: '白条', num: 0 }
+      { value: '快马粒', num: 10 }
     ]
     return { myInfoList }
   }

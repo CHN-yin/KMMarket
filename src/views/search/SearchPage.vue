@@ -77,7 +77,7 @@ export default {
   flex: 1;
   display: flex;
   align-items: center;
-  border: 1px solid #1FA4FC;
+  border: 1px solid $btn2__color;
   border-radius: .5rem;
   font-size: .16rem;
 
@@ -92,7 +92,7 @@ export default {
   }
 
   &__input::placeholder {
-    color: #b7b7b7;
+    color: $search__fontcolor;
   }
 
   &__btn {
@@ -100,7 +100,7 @@ export default {
     height: .32rem;
     line-height: .32rem;
     text-align: center;
-    background-color: #1FA4FC;
+    background-color: $btn2__color;
     border-radius: .15rem;
     margin: .02rem;
   }
@@ -113,7 +113,8 @@ export default {
   right: 0;
   left: 0;
   padding: .16rem .16rem;
-  background-color: #fff;
+  background-color: $content__bgcolor;
+  overflow-y: auto;
 
   &__title {
     text-align: center;

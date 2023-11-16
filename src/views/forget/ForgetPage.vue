@@ -1,5 +1,6 @@
 <template>
   <div class="forget">
+    <BackComponent class="back" />
     <img class="forget__head" src="../../../public/img/KMMarketLogo.png"/>
     <div class="forget__input">
       <input class="forget__input__content" placeholder="手机号" v-model="data.username">
@@ -16,6 +17,7 @@
 <script>
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
+import BackComponent from '@/components/back/BackComponent.vue'
 import ToastComponent, { useToastEffect } from '@/components/toast/ToastComponent.vue'
 import { post } from '@/utils/request'
 
@@ -78,7 +80,7 @@ const useForgetErrect = (router, toastShow) => {
 
 export default {
   name: 'ForgetPage',
-  components: { ToastComponent },
+  components: { ToastComponent, BackComponent },
   setup () {
     const router = useRouter()
     const { show, toastMessage, toastShow } = useToastEffect()

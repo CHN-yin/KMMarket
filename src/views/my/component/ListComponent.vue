@@ -31,9 +31,10 @@ export default {
   name: 'ListComponent',
   setup () {
     const list = [
-      { icon: '&#xe600;', title: '我的钱包', to: { name: 'MyPage' } },
+      // { icon: '&#xe600;', title: '我的钱包', to: { name: 'MyPage' } },
+      // { icon: '&#xe603;', title: '客服与帮助', to: { name: 'MyPage' } },
       { icon: '&#xe62c;', title: '我的地址', to: { name: 'AddressPage' } },
-      { icon: '&#xe603;', title: '客服与帮助', to: { name: 'MyPage' } }
+      { icon: '&#xe63f;', title: '修改密码', to: { name: 'ForgetPage' } }
     ]
     const { handelBtnClick } = useBtnEffect()
     return { list, handelBtnClick }

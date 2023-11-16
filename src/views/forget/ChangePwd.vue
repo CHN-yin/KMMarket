@@ -1,5 +1,6 @@
 <template>
   <div class="change">
+    <BackComponent class="back" />
     <img class="change__head" src="../../../public/img/KMMarketLogo.png"/>
     <div class="change__input">
       <input class="change__input__content" placeholder="新密码" v-model="data.password">
@@ -16,6 +17,7 @@
 import { reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { patch } from '@/utils/request'
+import BackComponent from '@/components/back/BackComponent.vue'
 import ToastComponent, { useToastEffect } from '@/components/toast/ToastComponent.vue'
 const useForgetErrect = (router, route, toastShow) => {
   const data = reactive({
@@ -45,7 +47,7 @@ const useForgetErrect = (router, route, toastShow) => {
 }
 export default {
   name: 'ChangePwd',
-  components: { ToastComponent },
+  components: { ToastComponent, BackComponent },
   setup () {
     const router = useRouter()
     const route = useRoute()
